@@ -7,10 +7,8 @@ import { selectTab } from './tabActions'
 
 export class TabHeader extends Component {
     render() {
-        console.log(this.props.tab, this.props.target)
         const selected = this.props.tab.selected === this.props.target
         const visible = this.props.tab.visible[this.props.target]
-        console.log(this.props.tab.visible, this.props.target)
         return (
             <If test={visible}>
                 <li className={selected ? 'active' : ''}>
