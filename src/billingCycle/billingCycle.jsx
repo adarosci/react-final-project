@@ -11,6 +11,8 @@ import TabContent from '../common/tab/tabContent'
 import { selectTab, showTabs } from '../common/tab/tabActions'
 import BillingCycleList from './billingCycleList';
 import BillingCycleCreate from './billingCycleCreate';
+import {create} from './billingCycleRedux';
+
 
 class BillingCycle extends Component {
 
@@ -38,7 +40,7 @@ class BillingCycle extends Component {
                                 <BillingCycleList></BillingCycleList>
                             </TabContent>
                             <TabContent id='tabCreate'>
-                                <BillingCycleCreate></BillingCycleCreate>
+                                <BillingCycleCreate onSubmit={this.props.create}/>
                             </TabContent>
                             <TabContent id='tabUpdate'>
                                 cccc
@@ -60,6 +62,7 @@ const mapStateToProps = state => ({
 })
 const mapDispatchToProps = dispatch => bindActionCreators({
     selectTab,
-    showTabs
+    showTabs,
+    create
 }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(BillingCycle)
